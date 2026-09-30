@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Shachi Garga Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a measurement lab report. Narrow reading column, figures beside the argument, mono for every number. */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --ink:#131926; --ink-2:#434C5E; --muted:#6A7386; --rule:#DCE1E9; --tint:#E9EDF7;
+  --accent:#2F48D8; --accent-ink:#2A3FBF; --s2:#C77A12;
+  --good:#1E7F4F; --good-bg:#E3F3EA; --warn:#9A5B00; --warn-bg:#FBEFD9; --bad:#B42318; --bad-bg:#FCE7E5;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E121A; --surface:#161B26; --ink:#E9ECF3; --ink-2:#B7BECC; --muted:#8C95A8; --rule:#283043; --tint:#1C2333;
+  --accent:#6F86F7; --accent-ink:#9AABFF; --s2:#B8801F;
+  --good:#5BC98E; --good-bg:#15291F; --warn:#E3AE5B; --warn-bg:#2B2213; --bad:#F2877D; --bad-bg:#2E1715;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0E121A; --surface:#161B26; --ink:#E9ECF3; --ink-2:#B7BECC; --muted:#8C95A8; --rule:#283043; --tint:#1C2333;
+  --accent:#6F86F7; --accent-ink:#9AABFF; --s2:#B8801F;
+  --good:#5BC98E; --good-bg:#15291F; --warn:#E3AE5B; --warn-bg:#2B2213; --bad:#F2877D; --bad-bg:#2E1715;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-ink);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:17px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand span{color:var(--accent-ink)}
+.nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.l{font-size:14px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.nav a.l:hover{color:var(--accent-ink)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+.role{display:inline-flex;gap:10px;align-items:center;font-family:var(--f-mono);font-size:13px;color:var(--accent-ink);background:var(--tint);padding:6px 12px;border-radius:999px}
+.role i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:800;line-height:.98;margin-top:18px}
+.thesis{font-size:clamp(18px,2vw,21px);line-height:1.5;color:var(--ink-2);margin-top:20px;max-width:34ch}
+.thesis b{color:var(--ink);font-weight:600}
+.hero-meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.cta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--rule);color:var(--ink);background:var(--surface);cursor:pointer;font-family:var(--f-body)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0E121A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#0E121A}}
+
+/* hero widget */
+.curve{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px 20px 16px}
+.curve-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.curve-head h3{font-size:17px;font-weight:700}
+.curve svg{width:100%;height:auto;display:block;margin-top:8px}
+.readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.readout>div{border-top:2px solid var(--rule);padding-top:8px}
+.readout .k{font-size:12px;color:var(--muted)}
+.readout .v{font-family:var(--f-mono);font-size:20px;font-weight:500}
+.readout .v.m{color:var(--s2)} .readout .v.a{color:var(--accent-ink)}
+.slider{margin-top:14px;display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.slider input{flex:1;accent-color:var(--accent)}
+.curve .cap{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* proof strip */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:48px}
+.proof>div{padding:20px 20px 20px 0}
+.proof>div+div{padding-left:20px;border-left:1px solid var(--rule)}
+.proof .n{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1}
+.proof .t{font-size:14px;color:var(--ink-2);margin-top:8px;max-width:22ch}
+@media (max-width:760px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}.proof>div:nth-child(3){padding-left:0;border-left:0}.proof>div:nth-child(n+3){border-top:1px solid var(--rule)}}
+
+/* sections */
+section.block{padding-block:72px 16px}
+.sec-head{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start;margin-bottom:36px}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:700;line-height:1.08}
+.sec-head p{color:var(--ink-2);margin-top:12px;max-width:62ch}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;gap:8px}}
+
+/* measurement layers */
+.layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--rule);border-radius:14px;background:var(--surface);overflow:hidden}
+.layer{padding:24px}
+.layer+.layer{border-left:1px solid var(--rule)}
+.layer .cad{font-family:var(--f-mono);font-size:12px;color:var(--accent-ink)}
+.layer h3{font-size:21px;margin-top:6px}
+.layer .q{margin-top:10px;font-style:italic;color:var(--ink-2)}
+.layer ul{margin:14px 0 0;padding-left:18px;color:var(--ink-2);font-size:15px}
+.layer li{margin-top:4px}
+@media (max-width:860px){.layers{grid-template-columns:1fr}.layer+.layer{border-left:0;border-top:1px solid var(--rule)}}
+.loop{margin-top:18px;font-size:15px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:8px 20px}
+.loop span{font-family:var(--f-mono);font-size:13px;color:var(--ink)}
+.loop span b{color:var(--accent-ink);font-weight:500}
+
+.principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;margin-top:44px}
+.principles div{min-width:0}
+.principles h3{font-size:19px}
+.principles p{color:var(--ink-2);margin-top:6px;font-size:15px}
+@media (max-width:760px){.principles{grid-template-columns:1fr}}
+
+/* case studies */
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:44px;padding-block:44px;border-top:1px solid var(--rule)}
+.case:first-of-type{border-top:0;padding-top:0}
+@media (max-width:920px){.case{grid-template-columns:minmax(0,1fr);gap:28px}.case>*{min-width:0}}
+.case .idx{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.case h3{font-size:clamp(24px,2.6vw,30px);line-height:1.15;margin-top:8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.02em;padding:3px 8px;border-radius:5px;background:var(--tint);color:var(--ink-2)}
+.story{margin-top:20px;display:grid;gap:14px}
+.story div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px}
+.story dt,.story .lab{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px}
+.story p{color:var(--ink-2);font-size:15.5px}
+.story p b{color:var(--ink);font-weight:600}
+@media (max-width:480px){.story div{grid-template-columns:1fr;gap:2px}}
+.result{margin-top:20px;padding:16px 18px;border-radius:10px;background:var(--tint);font-size:15.5px}
+.result .lab{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-ink);display:block;margin-bottom:4px}
+
+.fig{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px;min-width:0;align-self:start}
+.fig + .fig{margin-top:16px}
+.fig h4{font-family:var(--f-body);font-size:15px;font-weight:600;margin:0}
+.fig .sub{font-size:13px;color:var(--muted);margin-top:2px}
+.fig svg{width:100%;height:auto;display:block;margin-top:12px;overflow:visible}
+.fig .src{font-size:12px;color:var(--muted);margin-top:10px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-2);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.stack{display:flex;flex-direction:column;gap:16px;min-width:0}.stack>.fig{align-self:stretch}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;font-weight:500;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:0 10px 8px 0;border-bottom:1px solid var(--rule);white-space:nowrap}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2)}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:11.5px;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.chip.good{background:var(--good-bg);color:var(--good)}
+.chip.warn{background:var(--warn-bg);color:var(--warn)}
+.chip.bad{background:var(--bad-bg);color:var(--bad)}
+
+/* design timeline */
+.phases{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,5fr) minmax(0,1.5fr);gap:4px;margin-top:14px}
+.phase{padding:10px 12px;border-radius:6px;font-size:13px}
+.phase b{display:block;font-family:var(--f-mono);font-weight:500;font-size:12px}
+.phase.pre{background:var(--tint);color:var(--ink-2)}
+.phase.test{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .phase.test{color:#0E121A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .phase.test{color:#0E121A}}
+.phase.post{background:var(--tint);color:var(--ink-2)}
+
+/* tier diagram */
+.tiers{display:grid;gap:10px;margin-top:14px}
+.tier{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;padding:12px;border:1px solid var(--rule);border-radius:10px}
+.tier .n{font-family:var(--f-mono);font-size:13px;width:34px;height:34px;border-radius:8px;display:grid;place-items:center;background:var(--tint);color:var(--accent-ink)}
+.tier h5{margin:0;font-size:15px;font-family:var(--f-body)}
+.tier p{font-size:14px;color:var(--ink-2);margin-top:2px}
+
+/* more work */
+.more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.more{grid-template-columns:1fr}}
+.more article{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.more h3{font-size:20px;line-height:1.2}
+.more p{font-size:15px;color:var(--ink-2)}
+.more .kpi{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:13px;color:var(--ink)}
+
+/* AI products */
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.prod{padding:26px 28px 26px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;min-width:0}
+.prod:nth-child(2n){padding-left:28px;padding-right:0;border-left:1px solid var(--rule)}
+@media (max-width:860px){.products{grid-template-columns:1fr}.prod:nth-child(2n){padding-left:0;border-left:0}.prod{padding-right:0}}
+.prod svg{width:40px;height:40px;color:var(--accent-ink)}
+.prod h3{font-size:20px;line-height:1.2}
+.prod .who{font-size:13px;color:var(--muted);margin-top:4px}
+.prod p{font-size:15px;color:var(--ink-2);margin-top:8px}
+.prod .out{margin-top:10px;font-family:var(--f-mono);font-size:13px;color:var(--ink)}
+.prod .out b{color:var(--accent-ink);font-weight:500}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 36px}
+@media (max-width:900px){.kit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.kit{grid-template-columns:1fr}}
+.kit h3{font-family:var(--f-mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-ink);padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.kit ul{list-style:none;padding:0;margin:10px 0 0}
+.kit li{padding:5px 0;font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.kit li span{color:var(--muted);font-size:13px;text-align:right}
+
+/* enablement */
+.enable{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.enable{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.enable{grid-template-columns:1fr}}
+.enable div{border-top:2px solid var(--accent);padding-top:12px;min-width:0}
+.enable h3{font-size:18px}
+.enable p{font-size:14.5px;color:var(--ink-2);margin-top:6px}
+
+/* experience */
+.xp{display:grid;gap:0}
+.job{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;padding-block:22px;border-top:1px solid var(--rule)}
+.job:last-child{border-bottom:1px solid var(--rule)}
+@media (max-width:760px){.job{grid-template-columns:1fr;gap:6px}}
+.job .when{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.job h3{font-size:20px}
+.job .org{color:var(--ink-2);font-size:15px}
+.job p{color:var(--ink-2);font-size:15px;margin-top:8px;max-width:70ch}
+
+/* contact */
+.contact{margin-block:72px 48px;padding:40px;border-radius:18px;background:var(--surface);border:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:860px){.contact{grid-template-columns:1fr;padding:28px 22px}}
+.contact h2{font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.contact p{color:var(--ink-2);margin-top:12px;max-width:48ch}
+.cline{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.cline:last-child{border-bottom:0}
+.cline .k{font-size:12px;color:var(--muted);font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.06em}
+.cline .v{font-family:var(--f-mono);font-size:15px;user-select:all;word-break:break-all}
+.copy{font-size:13px;padding:6px 10px;border-radius:6px;border:1px solid var(--rule);background:var(--bg);color:var(--ink-2);cursor:pointer;font-family:var(--f-body);white-space:nowrap}
+footer{padding-block:24px 48px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+
+/* playground */
+.lab-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px}
+@media (max-width:960px){.lab-grid{grid-template-columns:minmax(0,1fr)}}
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;min-width:0}
+.tool h3{font-size:21px}
+.tool .sub{font-size:14px;color:var(--muted);margin-top:4px}
+.ch{display:grid;grid-template-columns:110px minmax(0,1fr) 64px 78px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.ch:last-of-type{border-bottom:0}
+.ch label{color:var(--ink)}
+.ch input{width:100%;accent-color:var(--accent)}
+.ch .sv{font-family:var(--f-mono);text-align:right}
+.ch .mc{font-family:var(--f-mono);text-align:right;font-size:13px;color:var(--ink-2)}
+.chh{display:grid;grid-template-columns:110px minmax(0,1fr) 64px 78px;gap:12px;font-size:11.5px;color:var(--muted);font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.05em;margin-top:14px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.chh span:nth-child(n+3){text-align:right}
+@media (max-width:520px){.ch,.chh{grid-template-columns:84px minmax(0,1fr) 56px 64px;gap:8px}}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.kpis div{background:var(--tint);border-radius:10px;padding:12px}
+.kpis .k{font-size:12px;color:var(--muted)}
+.kpis .v{font-family:var(--f-mono);font-size:22px;margin-top:2px}
+.kpis .d{font-family:var(--f-mono);font-size:12px;margin-top:2px;color:var(--muted)}
+.kpis .d.up{color:var(--good)} .kpis .d.down{color:var(--bad)}
+.tool-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.tool-actions .note{font-size:13px;color:var(--muted);flex:1;min-width:180px}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 70px;gap:10px;align-items:center;margin-top:12px;font-size:14px}
+.field label{grid-column:1/-1;color:var(--ink-2);font-size:13.5px}
+.field input{accent-color:var(--accent);width:100%}
+.field output{font-family:var(--f-mono);text-align:right}
+.mde{margin-top:18px;padding:16px;border-radius:10px;background:var(--tint)}
+.mde .big{font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1}
+.mde p{font-size:14px;color:var(--ink-2);margin-top:8px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 32px}
+.fchip{font-family:var(--f-mono);font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .fchip[aria-pressed="true"]{color:#0E121A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fchip[aria-pressed="true"]{color:#0E121A}}
+.case.first-visible{border-top:0;padding-top:0}
+
+/* tooltip */
+.tip{position:fixed;pointer-events:none;z-index:50;background:var(--ink);color:var(--bg);font-size:12.5px;padding:7px 10px;border-radius:6px;font-family:var(--f-mono);line-height:1.45;opacity:0;transition:opacity .12s;max-width:260px}
+.hit{fill:transparent;cursor:default}
+svg text{font-family:var(--f-mono);font-size:11px;fill:var(--muted);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+svg text.lbl{fill:var(--ink-2);font-family:var(--f-body);font-size:12px}
+svg .grid{stroke:var(--rule);stroke-width:1}
+</style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">Shachi Garga<span>.</span></a>
+    <ul>
+      <li><a class="l" href="#method">Method</a></li>
+      <li><a class="l" href="#lab">Playground</a></li>
+      <li><a class="l" href="#work">Case studies</a></li>
+      <li><a class="l" href="#ai">AI products</a></li>
+      <li><a class="l" href="#toolkit">Vendors &amp; toolkit</a></li>
+      <li><a class="l" href="#experience">Experience</a></li>
+      <li><a class="l" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="role"><i></i>Lead Marketing Scientist · AI</span>
+        <h1>Shachi Garga</h1>
+        <p class="thesis">I find out which media <b>actually causes</b> sales and leads, and I build the AI tools that put those answers in front of the people spending the money.</p>
+        <div class="hero-meta">
+          <span>Austin, TX · Remote</span>
+          <span>Bayesian MMM · Geo holdouts · Causal inference · Agentic AI</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#work">See the case studies</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <figure class="curve" aria-labelledby="curve-title" style="margin:0">
+        <div class="curve-head">
+          <h3 id="curve-title">What does the next dollar buy?</h3>
+          <span class="eyebrow">Spend-response curve</span>
+        </div>
+        <svg id="hill" viewBox="0 0 460 230" role="img" aria-label="Diminishing returns curve with a movable spend level"></svg>
+        <div class="slider">
+          <label for="spend">Weekly spend</label>
+          <input id="spend" type="range" min="20" max="300" value="150" step="5">
+          <span class="mono" id="spendv">$150K</span>
+        </div>
+        <div class="readout" aria-live="polite">
+          <div><div class="k">Average CPL</div><div class="v a" id="avg">$0</div></div>
+          <div><div class="k">Marginal CPL</div><div class="v m" id="marg">$0</div></div>
+          <div><div class="k">Next lead costs</div><div class="v" id="ratio">0x</div></div>
+        </div>
+        <p class="cap">Illustrative Hill saturation curve. Most dashboards report the average. I budget from the marginal, because that is what the next dollar actually buys.</p>
+      </figure>
+    </div>
+
+    <div class="proof">
+      <div><div class="n mono">6 yrs</div><div class="t">building data systems, from software engineering to measurement leadership</div></div>
+      <div><div class="n mono">~$42M</div><div class="t">in media spend under my measurement across DTC and retail advertisers</div></div>
+      <div><div class="n mono">r = 0.78</div><div class="t">between my pre-flight creative scores and in-market ROAS</div></div>
+      <div><div class="n mono">3d → 4h</div><div class="t">media-plan turnaround with AI drafting and human review</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="block" id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">01 · How I measure</span>
+      <div>
+        <h2>Three lenses, one answer</h2>
+        <p>No single method tells the whole truth about media. I run models, experiments, and attribution together, and use each one to check the others. The goal is a number a CFO can defend and a media buyer can act on this week.</p>
+      </div>
+    </div>
+
+    <div class="layers">
+      <div class="layer">
+        <span class="cad">1 to 4x a year</span>
+        <h3>Bayesian media mix modeling</h3>
+        <p class="q">Which channels should we be in, and at what spend level?</p>
+        <ul>
+          <li>Recast, Triple Whale, Workmagic, BayesiaLab</li>
+          <li>Priors set before results are seen</li>
+          <li>Validated with recovery, holdout, and stability checks</li>
+        </ul>
+      </div>
+      <div class="layer">
+        <span class="cad">4 to 12 week tests</span>
+        <h3>Incrementality experiments</h3>
+        <p class="q">What did this channel, creative, or mix add on top of everything else?</p>
+        <ul>
+          <li>Geo holdouts and matched markets</li>
+          <li>Difference-in-differences, synthetic control</li>
+          <li>Power and market matching settled up front</li>
+        </ul>
+      </div>
+      <div class="layer">
+        <span class="cad">Weekly</span>
+        <h3>Attribution and diagnostics</h3>
+        <p class="q">Which station, daypart, ad, or audience should we change right now?</p>
+        <ul>
+          <li>Airing-level response windows for TV and radio</li>
+          <li>Deterministic ACR matching (iSpot), MMP data</li>
+          <li>Anomaly monitoring on CPL, CPM, CTR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="loop">
+      <span><b>Experiments</b> calibrate the model</span>
+      <span><b>The model</b> sizes the budget</span>
+      <span><b>Attribution</b> steers the week</span>
+    </div>
+
+    <div class="principles">
+      <div><h3>Set the priors before seeing results</h3><p>Model configuration happens up front with the client. Tuning assumptions after the numbers come in is how an MMM quietly becomes biased.</p></div>
+      <div><h3>Budget from the marginal number</h3><p>Average CPA says what a channel has done. Marginal CPA says what the next dollar buys. Reallocation decisions always run on the second one.</p></div>
+      <div><h3>Test before you reallocate</h3><p>When a model's credible intervals overlap, I say so and design a holdout to settle it. A quarter spent testing beats a year spent on a wrong split.</p></div>
+      <div><h3>Say what the data cannot prove</h3><p>Correlation gets reported as correlation. Clients trust the measurement team more when it names its limits before anyone else does.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="lab">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">02 · Playground</span>
+      <div>
+        <h2>Try the thinking yourself</h2>
+        <p>Two small tools built on the same math I use with clients. The numbers are illustrative, so play with them freely.</p>
+      </div>
+    </div>
+    <div class="lab-grid">
+      <div class="tool" id="sim">
+        <h3>Budget reallocation simulator</h3>
+        <p class="sub">Five channels, each on its own diminishing-returns curve. Move spend around, or let the optimizer do it.</p>
+        <div class="chh"><span>Channel</span><span>Weekly spend</span><span>Spend</span><span>Next lead</span></div>
+        <div id="sim-rows"></div>
+        <div class="kpis">
+          <div><div class="k">Leads / week</div><div class="v" id="sim-leads">0</div><div class="d" id="sim-dl">vs. starting plan</div></div>
+          <div><div class="k">Blended CPL</div><div class="v" id="sim-cpl">$0</div><div class="d" id="sim-dc">vs. starting plan</div></div>
+          <div><div class="k">Total budget</div><div class="v" id="sim-tot">$0</div><div class="d">per week</div></div>
+        </div>
+        <div class="tool-actions">
+          <button class="btn primary" type="button" id="sim-opt">Optimize same budget</button>
+          <button class="btn" type="button" id="sim-reset">Reset</button>
+          <span class="note">The optimizer moves money until every channel's next lead costs about the same. That is the whole idea behind MMM budget recommendations.</span>
+        </div>
+      </div>
+      <div class="tool" id="pow">
+        <h3>Geo-holdout planner</h3>
+        <p class="sub">Before any test runs: what is the smallest lift this design can reliably detect?</p>
+        <div class="field"><label for="p-m">Markets (DMAs) in the test universe</label><input type="range" id="p-m" min="10" max="120" value="40"><output id="o-m">40</output></div>
+        <div class="field"><label for="p-h">Share of markets held out</label><input type="range" id="p-h" min="10" max="50" value="25" step="5"><output id="o-h">25%</output></div>
+        <div class="field"><label for="p-w">Test length in weeks</label><input type="range" id="p-w" min="2" max="12" value="8"><output id="o-w">8</output></div>
+        <div class="field"><label for="p-cv">Week-to-week noise in a market's conversions</label><input type="range" id="p-cv" min="5" max="60" value="20" step="5"><output id="o-cv">20%</output></div>
+        <div class="field"><label for="p-e">Lift you expect the media to drive</label><input type="range" id="p-e" min="2" max="30" value="10"><output id="o-e">10%</output></div>
+        <div class="mde">
+          <div class="eyebrow">Minimum detectable lift · 90% confidence, 80% power</div>
+          <div class="big mono" id="p-mde">0%</div>
+          <div style="margin-top:8px" id="p-chip"></div>
+          <p id="p-note"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">03 · Case studies</span>
+      <div>
+        <h2>Selected work</h2>
+        <p>Real engagements from my time at Hawthorne Advertising, a full-service performance agency. Client names are withheld; the numbers and methods are from the actual work.</p>
+      </div>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter case studies">
+      <button class="fchip" type="button" data-f="all" aria-pressed="true">All work</button>
+      <button class="fchip" type="button" data-f="mmm" aria-pressed="false">MMM</button>
+      <button class="fchip" type="button" data-f="exp" aria-pressed="false">Experiments</button>
+      <button class="fchip" type="button" data-f="attr" aria-pressed="false">Attribution</button>
+      <button class="fchip" type="button" data-f="creative" aria-pressed="false">Creative</button>
+      <button class="fchip" type="button" data-f="ai" aria-pressed="false">AI</button>
+      <button class="fchip" type="button" data-f="strategy" aria-pressed="false">Strategy</button>
+    </div>
+
+    <!-- Case 1 -->
+    <article class="case" data-t="mmm">
+      <div>
+        <span class="idx">Case 01 · National home-services retailer · 8-figure annual media</span>
+        <h3>A Bayesian MMM the client could trust, and the budget math that came out of it</h3>
+        <div class="tags"><span class="tag">Recast</span><span class="tag">Bayesian MMM</span><span class="tag">12 channels</span><span class="tag">Leads KPI</span></div>
+        <div class="story">
+          <div><span class="lab">Problem</span><p>A lead-gen advertiser spending across TV, CTV, radio, search, social, display, audio and direct mail was allocating budget on last-click and platform numbers, which over-credit branded search.</p></div>
+          <div><span class="lab">What I did</span><p>Built the daily mastersheet and prior sheet, split channels into <b>demand creation</b> and <b>demand capture</b> so brand search did not absorb TV's credit, and ran the full validation stack before anything reached the client: prior-predictive check, parameter recovery, holdout backtests, and a seven-week stability loop.</p></div>
+          <div><span class="lab">Insight</span><p>Every channel was past its efficient point. TV's next lead cost <b>1.8x its average</b>, direct mail's cost <b>4.2x</b>, while brand search stayed the cheapest place to buy the next lead. That gap reframed the budget conversation from "what worked" to "what the next dollar buys."</p></div>
+        </div>
+        <div class="result"><span class="lab">Outcome</span>A validated model the client acted on, plus the team SOP I wrote so every future Recast build clears the same thresholds.</div>
+      </div>
+      <div class="stack">
+        <div class="fig">
+          <h4>Validation scorecard</h4>
+          <div class="sub">A model ships only when every check clears its threshold</div>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Check</th><th>Result</th><th>Bar</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Prior-predictive 95% coverage</td><td class="num">99.8%</td><td class="num">≈95%</td><td><span class="chip warn">▲ Slightly wide</span></td></tr>
+                <tr><td>Recovery, spend-weighted CRPS ratio</td><td class="num">0.24</td><td class="num">&lt;0.5</td><td><span class="chip good">✓ Great</span></td></tr>
+                <tr><td>Recovery, equal-weighted</td><td class="num">0.41</td><td class="num">&lt;0.8</td><td><span class="chip good">✓ Great</span></td></tr>
+                <tr><td>Intercept recovery</td><td class="num">0.25</td><td class="num">Low</td><td><span class="chip good">✓ Great</span></td></tr>
+                <tr><td>Holdout daily error, 60/120/180d</td><td class="num">7/8/9%</td><td class="num">8/10/12%</td><td><span class="chip good">✓ Pass</span></td></tr>
+                <tr><td>Stability overlap, 7 weekly refits</td><td class="num">93%</td><td class="num">&gt;90%</td><td><span class="chip good">✓ Excellent</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="fig">
+          <h4>How much more the next lead costs, by channel</h4>
+          <div class="sub">Marginal CPA ÷ average CPA · trailing 365 days · 1.0x would mean no diminishing returns</div>
+          <svg id="dumbbell" viewBox="0 0 520 380" role="img" aria-label="Bar chart of marginal to average CPA ratio for eleven channels"></svg>
+          <p class="src">Source: Recast model output, lower-funnel effects included.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case 2 -->
+    <article class="case" data-t="mmm exp">
+      <div>
+        <span class="idx">Case 02 · Same client, 2026 refit · 152-day window</span>
+        <h3>Telling a client what the model can and cannot support</h3>
+        <div class="tags"><span class="tag">Model diagnostics</span><span class="tag">Credible intervals</span><span class="tag">Test design</span></div>
+        <div class="story">
+          <div><span class="lab">Problem</span><p>After a data rebuild, the client wanted the new dashboard to decide which channels to cut and which to fund. The front page showed CPAs to the dollar and invited a reallocation.</p></div>
+          <div><span class="lab">What I did</span><p>Read the diagnostics before the dashboard. The next lead cost <b>1.77x the average</b> account-wide, but the 95% intervals overlapped heavily (TV anywhere from 79 to 893 leads, CTV 48 to 668), and two channels failed parameter recovery. I tiered each channel by how well the model actually measured it.</p></div>
+          <div><span class="lab">Call</span><p>The model supports <b>sizing the total budget</b>, and it does not yet support re-splitting it. Display was the one clear cut. For CTV, the strongest case on the page, I recommended a geo holdout to settle it inside a quarter.</p></div>
+        </div>
+        <div class="result"><span class="lab">Why it matters</span>A separate lead-impact read for the same client found blended leads up 17% on 29% more spend, with weekly spend and search leads correlated at only r = 0.38. I reported it as plausible but unproven and proposed a controlled market test.</div>
+      </div>
+      <div class="fig">
+        <h4>How well the model learned each channel</h4>
+        <div class="sub">Parameter recovery ratio (posterior error ÷ prior error). Lower is better.</div>
+        <svg id="recovery" viewBox="0 0 520 300" role="img" aria-label="Bar chart of parameter recovery ratios by channel with thresholds at 0.6 and 0.95"></svg>
+        <p class="src">Below 0.6 the channel is learning from data. Above 0.95 the model is mostly repeating the prior. Single run; 3 to 5 averaged runs before any channel is treated as settled. Brand search lines are declared lower-funnel and carry no truth line by design.</p>
+      </div>
+    </article>
+
+    <!-- Case 3 -->
+    <article class="case" data-t="exp">
+      <div>
+        <span class="idx">Case 03 · Education, home services, CTV programs</span>
+        <h3>A geo-holdout playbook for when national media can't be paused</h3>
+        <div class="tags"><span class="tag">Geo holdout</span><span class="tag">Matched markets</span><span class="tag">Diff-in-diff</span><span class="tag">The Trade Desk</span></div>
+        <div class="story">
+          <div><span class="lab">Problem</span><p>Clients running national TV wanted to know whether CTV and programmatic added anything on top. Platform lift studies and view-through numbers inflate that answer when national TV is live.</p></div>
+          <div><span class="lab">What I did</span><p>Wrote the house framework: national linear stays constant everywhere, the tested channel runs only in test DMAs, and <b>20 to 30% of matched markets</b> are held out. Markets are matched on six to twelve months of history, and search, social, promos and landing pages are locked for the window.</p></div>
+          <div><span class="lab">In the field</span><p>Ran a state-level programmatic holdout for an online education provider across CTV, display, native, online video and streaming audio for three program lines. Set up a creative test for a flooring retailer with <b>38% of budget</b> in test markets against controls and a pre-set target cost per lead.</p></div>
+        </div>
+        <div class="result"><span class="lab">Outcome</span>Lift studies at p &lt; 0.05 behind $MM+ cross-channel reallocation decisions, read with confidence intervals and pre-agreed decision rules.</div>
+      </div>
+      <div class="stack">
+        <div class="fig">
+          <h4>Test timeline</h4>
+          <div class="sub">Site traffic lags exposure, so the read extends past the flight</div>
+          <div class="phases">
+            <div class="phase pre"><b>Pre-period</b>2 to 4 wks baseline</div>
+            <div class="phase test"><b>Test window</b>4 to 6 wks, CTV on in test DMAs only</div>
+            <div class="phase post"><b>Lag</b>1 to 2 wks</div>
+          </div>
+        </div>
+        <div class="fig">
+          <h4>Market matching rules</h4>
+          <div class="tbl-wrap"><table>
+            <thead><tr><th>Dimension</th><th>Tolerance</th></tr></thead>
+            <tbody>
+              <tr><td>Population</td><td class="num">±10%</td></tr>
+              <tr><td>Historical site sessions</td><td class="num">±10–15%</td></tr>
+              <tr><td>Brand search volume</td><td class="num">±10%</td></tr>
+              <tr><td>Direct traffic share</td><td class="num">±10%</td></tr>
+              <tr><td>National TV GRPs</td><td class="num">Similar</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="fig">
+          <h4>Decision rules, agreed before launch</h4>
+          <div class="tbl-wrap"><table>
+            <thead><tr><th>Read</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>Lift and efficient cost per visit</td><td><span class="chip good">✓ Scale</span></td></tr>
+              <tr><td>Lift, but inefficient</td><td><span class="chip warn">▲ Optimize frequency and inventory</span></td></tr>
+              <tr><td>Flat</td><td><span class="chip warn">▲ Re-test at higher weight</span></td></tr>
+              <tr><td>Negative</td><td><span class="chip bad">✕ Pause</span></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case 4 -->
+    <article class="case" data-t="exp attr">
+      <div>
+        <span class="idx">Case 04 · National home services brand · DRTV + scatter</span>
+        <h3>Finding where TV really converts: through search</h3>
+        <div class="tags"><span class="tag">Lift analysis</span><span class="tag">Full-funnel KPIs</span><span class="tag">Event controls</span></div>
+        <div class="story">
+          <div><span class="lab">Problem</span><p>After a government shutdown cut responses 45%, the client needed to know whether leaner DRTV budgets were still working and where to push next.</p></div>
+          <div><span class="lab">What I did</span><p>Read seven months of the funnel (Google Trends, branded and non-branded search, responses, leads, orders) against DRTV and scatter spend, with promotions and outside shocks marked so they were not mistaken for media effects.</p></div>
+          <div><span class="lab">Insight</span><p>Branded search rose <b>30% in Q1</b> with TV. The Hispanic-market DRTV line correlated far more with branded search (r ≈ 0.65) than with leads (r ≈ 0.30): those viewers are prompted by TV and convert through search. Orders tracked offers, so offers are the bottom-funnel lever.</p></div>
+        </div>
+        <div class="result"><span class="lab">Outcome</span>Leads +4% and orders +3% year over year on a leaner mix. The recommendation moved the plan from efficiency to demand, with a Q2 scatter read to isolate incremental impact.</div>
+      </div>
+      <div class="fig">
+        <h4>Correlation with weekly TV spend, Q1 2026</h4>
+        <div class="sub">Pearson r by DRTV campaign · hover for detail</div>
+        <div class="legend"><span><i style="background:var(--accent)"></i>Total leads</span><span><i style="background:var(--s2)"></i>Branded search</span></div>
+        <svg id="corr" viewBox="0 0 520 280" role="img" aria-label="Grouped bars of correlation between TV campaigns and leads or branded search"></svg>
+        <p class="src">Correlation is a directional read. It pointed to where a controlled test would pay off.</p>
+      </div>
+    </article>
+
+    <!-- Case 5 -->
+    <article class="case" data-t="creative ai">
+      <div>
+        <span class="idx">Case 05 · Cross-advertiser creative book</span>
+        <h3>Scoring creative before the money is spent</h3>
+        <div class="tags"><span class="tag">Meta-analysis</span><span class="tag">AI classification</span><span class="tag">Creative fatigue</span></div>
+        <div class="story">
+          <div><span class="lab">Problem</span><p>Creative calls were made after budget had already gone out, and tagging creative attributes by hand was slow and inconsistent across analysts.</p></div>
+          <div><span class="lab">What I did</span><p>Used AI classification to tag creative attributes across advertisers, ran a meta-analysis of creative and channel performance across the whole book, and turned it into a <b>pre-flight scoring tool</b> used in annual account planning.</p></div>
+          <div><span class="lab">Fatigue</span><p>For a flooring retailer, cumulative response rate fell to 1.0 to 1.4% as impressions kept climbing: extra weight was adding reach while response fell. Evergreen and laminate spots bought leads at a fraction of the cost of seasonal promo spots, often ten times cheaper. I paired this with a share-of-voice read showing a national competitor sharply ramping its TV spend.</p></div>
+        </div>
+        <div class="result"><span class="lab">Outcome</span>Scores correlated with in-market ROAS at r = 0.78. Recommendations cut roughly 23% of wasted budget before it committed, and manual tagging dropped 17%.</div>
+      </div>
+      <div class="fig">
+        <h4>What the scoring tool does</h4>
+        <div class="tiers">
+          <div class="tier"><span class="n">1</span><div><h5>Tag</h5><p>AI classifies each asset: format, hook, offer, talent, UGC vs. produced, length, CTA.</p></div></div>
+          <div class="tier"><span class="n">2</span><div><h5>Learn</h5><p>Meta-analysis across advertisers links attributes to in-market ROAS and CPL.</p></div></div>
+          <div class="tier"><span class="n">3</span><div><h5>Score</h5><p>New concepts get a pre-flight score before media is bought.</p></div></div>
+          <div class="tier"><span class="n">4</span><div><h5>Watch</h5><p>Response rate per impression by spot age flags fatigue and triggers rotation.</p></div></div>
+        </div>
+        <p class="src">Used by creative teams and sales during annual account strategy.</p>
+      </div>
+    </article>
+
+    <!-- Case 6 -->
+    <article class="case" data-t="attr">
+      <div>
+        <span class="idx">Case 06 · Consumer fintech app · Linear TV launch</span>
+        <h3>Designing TV attribution for app installs</h3>
+        <div class="tags"><span class="tag">iSpot</span><span class="tag">AppsFlyer</span><span class="tag">MMM alignment</span></div>
+        <div class="story">
+          <div><span class="lab">Problem</span><p>An app-first brand buying linear TV needed installs credited to TV without double-counting the social and digital activity running at the same time.</p></div>
+          <div><span class="lab">What I did</span><p>Designed a three-tier framework run in parallel: airing-level statistical attribution for direct-response networks, deterministic ACR matching for brand and prime, and direct-response codes as a hard check. Tight 5 to 10 minute windows limit false positives; 7 to 14 day comparisons of impulse vs. matchback calibrate the true TV effect.</p></div>
+          <div><span class="lab">Fit</span><p>Mapped every window and baseline choice to the client's existing Recast MMM so TV reads the same in both systems.</p></div>
+        </div>
+      </div>
+      <div class="fig">
+        <h4>Three-tier TV attribution</h4>
+        <div class="tiers">
+          <div class="tier"><span class="n">1</span><div><h5>Airing-level statistical attribution</h5><p>MMP conversions matched to post-log timestamps by station and daypart, with lift over baseline. CPI by station, daypart, creative.</p></div></div>
+          <div class="tier"><span class="n">2</span><div><h5>iSpot deterministic matching</h5><p>ACR data from 14M+ smart TVs, household device graph to app events, 7 to 30 day lookback. Recommended when over 30% of budget is brand or prime.</p></div></div>
+          <div class="tier"><span class="n">3</span><div><h5>Direct-response mechanisms</h5><p>Channel-specific promo codes, QR to app store, vanity URLs for 1:1 checks.</p></div></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="more" style="margin-top:12px">
+      <article data-t="mmm">
+        <span class="idx eyebrow">Case 07 · Multi-branch HVAC services</span>
+        <h3>Bayesian networks for branch-level media guardrails</h3>
+        <p>13 branches had moved between traditional and digital media with mixed results. Built a BayesiaLab model on spend, weather, offers and bookable demand to show which conditions drive a high-demand period, and turned it into investment guardrails by branch and season.</p>
+        <div class="kpi">Delivered as an internal Lunch &amp; Learn</div>
+      </article>
+      <article data-t="strategy">
+        <span class="idx eyebrow">Case 08 · Online education provider</span>
+        <h3>TikTok competitive landscape</h3>
+        <p>Used Pathmatics to map a year of TikTok spend. The top ten advertisers put 59% of spend in Q3 and Q4, while the top college advertisers put 58% in Q1 and Q2. Education spend follows enrollment windows.</p>
+        <svg id="season" viewBox="0 0 320 170" role="img" aria-label="Quarterly share of spend, TikTok top ten vs. college advertisers"></svg>
+        <div class="legend" style="margin-top:0"><span><i style="background:var(--accent)"></i>TikTok top 10 ($971M)</span><span><i style="background:var(--s2)"></i>College top 10 ($18M)</span></div>
+      </article>
+      <article data-t="strategy exp">
+        <span class="idx eyebrow">Case 09 · Streaming platform launch</span>
+        <h3>A seven-figure test-and-learn launch plan</h3>
+        <p>Measurement plan for a new car-content streaming platform: validate upper-funnel channels against aggressive acquisition-cost goals, with three layers of evidence feeding a 2027 scaling roadmap built on incrementality.</p>
+        <div class="kpi">Benchmarked with 5 years of competitive mix data</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="ai">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">04 · AI products</span>
+      <div>
+        <h2>Tools I built so measurement scales past me</h2>
+        <p>The first time a question comes up, it's a notebook. The second time, it becomes a tool. These run on live platform data and our own model outputs, with review built in wherever a number reaches a client.</p>
+      </div>
+    </div>
+    <div class="products">
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="7" width="26" height="18" rx="4"/><path d="M11 25v7l7-7"/><path d="M22 20l4-5 3 3 7-8"/></svg>
+        <div><h3>Conversational analytics</h3><div class="who">Account leads, strategists, clients</div>
+          <p>Plain-English questions over live TikTok, Meta and Google campaign data. Ask "why did CPL jump in Dallas last week" and get an answer from the actual numbers.</p>
+          <div class="out"><b>&lt;3s</b> KPI answers · <b>40%</b> less dashboard dependency</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="30" height="22" rx="3"/><path d="M5 20l8-6 6 5 6-4 10 7"/><path d="M12 33h16"/></svg>
+        <div><h3>Creative scoring tool</h3><div class="who">Creative and sales teams</div>
+          <p>AI tagging of creative attributes plus a cross-advertiser model that scores new concepts before launch and flags fatigue once they're live.</p>
+          <div class="out"><b>r = 0.78</b> with ROAS · <b>~23%</b> waste cut</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="M14 17h12M14 23h8"/></svg>
+        <div><h3>Measurement explainers (custom GPTs)</h3><div class="who">Advertisers, agency partners, sales</div>
+          <p>Self-serve tools grounded in our incrementality results, so non-technical teams can ask what a lift test means without waiting on an analyst.</p>
+          <div class="out"><b>70%</b> faster reporting · <b>200+</b> weekly readouts</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 32V14l12-8 12 8v18"/><path d="M15 32v-9h10v9"/><path d="M26 12l4-4"/></svg>
+        <div><h3>AI-assisted media planning</h3><div class="who">Media planning, account teams</div>
+          <p>LLM workflows on our proprietary MMM datasets draft plan recommendations. I set the accuracy and statistical review standards, so nothing reaches a client unchecked.</p>
+          <div class="out"><b>3 days → &lt;4 hours</b> per plan</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 28l8-8 6 5 8-12 10 9"/><circle cx="26" cy="13" r="4"/><path d="M26 3v4M36 13h-4"/></svg>
+        <div><h3>Agentic anomaly monitor</h3><div class="who">Account leads</div>
+          <p>An agent that watches CPL, CPM and CTR across advertisers, flags anomalies with LLM-driven detection, and validates its own output before anything is delivered.</p>
+          <div class="out"><b>27%</b> less reporting time</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="20" r="4"/><circle cx="31" cy="10" r="4"/><circle cx="31" cy="30" r="4"/><path d="M13 19l14-7M13 21l14 7"/></svg>
+        <div><h3>Make automations</h3><div class="who">Analytics and account teams</div>
+          <p>Scheduled Make scenarios that pull platform data, refresh reporting, and route alerts to the right people, so recurring steps run without an analyst in the loop.</p>
+          <div class="out">Recurring reporting runs itself</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="6" width="30" height="28" rx="3"/><path d="M5 13h30"/><path d="M11 20l4 3-4 3M19 26h8"/></svg>
+        <div><h3>Interactive Claude artifacts</h3><div class="who">Internal teams and clients</div>
+          <p>Shareable interactive readouts: creative performance reports, a measurement SQL console, and explainers that let teams explore results in the browser.</p>
+          <div class="out">Used inside the agency and with clients</div></div>
+      </div>
+      <div class="prod">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="20" cy="9" rx="13" ry="4"/><path d="M7 9v22c0 2 6 4 13 4s13-2 13-4V9"/><path d="M7 20c0 2 6 4 13 4s13-2 13-4"/></svg>
+        <div><h3>Unified measurement data layer</h3><div class="who">Data engineering, every analyst</div>
+          <p>AWS/SQL pipelines joining Nielsen, Comscore, Meta, Google, TikTok, Triple Whale and The Trade Desk, including auction data like floor prices and bid CPM.</p>
+          <div class="out"><b>22%</b> faster client onboarding</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="toolkit">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">05 · Vendors &amp; toolkit</span>
+      <div>
+        <h2>The platforms I've run, configured, and evaluated</h2>
+        <p>Agency work means using whatever the client already pays for, and knowing where each tool is strong and where it misleads.</p>
+      </div>
+    </div>
+    <div class="kit">
+      <div><h3>Media mix modeling</h3><ul>
+        <li>Recast <span>priors, validation, deployment</span></li>
+        <li>Triple Whale <span>DTC MMM</span></li>
+        <li>Workmagic <span>MMM + lift</span></li>
+        <li>BayesiaLab <span>Bayesian networks</span></li>
+        <li>Meridian, Robyn <span>evaluated</span></li></ul></div>
+      <div><h3>Attribution &amp; TV</h3><ul>
+        <li>iSpot <span>ACR matching</span></li>
+        <li>AppsFlyer <span>MMP</span></li>
+        <li>Airing-level attribution <span>DRTV, radio</span></li>
+        <li>Nielsen, Comscore <span>audience data</span></li>
+        <li>GA4 <span>site behavior</span></li></ul></div>
+      <div><h3>Audience &amp; competitive</h3><ul>
+        <li>MRI-Simmons <span>segmentation</span></li>
+        <li>Experian Mosaic, TrueTouch <span>1P profiling</span></li>
+        <li>Pathmatics <span>digital spend</span></li>
+        <li>MediaRadar <span>TV share of voice</span></li>
+        <li>Google Trends <span>demand signals</span></li></ul></div>
+      <div><h3>Media platforms</h3><ul>
+        <li>Meta, Google, TikTok <span>APIs</span></li>
+        <li>The Trade Desk <span>CTV, auction data</span></li>
+        <li>Bing <span>search</span></li>
+        <li>Supermetrics <span>connectors</span></li></ul></div>
+      <div><h3>Data &amp; code</h3><ul>
+        <li>Python <span>analysis, pipelines</span></li>
+        <li>SQL <span>warehouse-level</span></li>
+        <li>BigQuery, Databricks, AWS</li>
+        <li>Tableau, Power BI</li>
+        <li>Git</li></ul></div>
+      <div><h3>AI &amp; automation</h3><ul>
+        <li>Claude <span>artifacts, agents</span></li>
+        <li>GPT <span>custom GPTs</span></li>
+        <li>LLM pipelines <span>RAG, review gates</span></li>
+        <li>Make <span>workflow automation</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="enablement">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">06 · Enablement</span>
+      <div>
+        <h2>Raising the measurement bar for the whole team</h2>
+      </div>
+    </div>
+    <div class="enable">
+      <div><h3>Recast modeling SOP</h3><p>The agency's standard for priors, recovery, holdout and stability thresholds, plus a troubleshooting guide and client narrative.</p></div>
+      <div><h3>Bayesian MMM Lunch &amp; Learn</h3><p>Taught where MMM, lift tests and platform attribution each fit, with a live BayesiaLab walkthrough.</p></div>
+      <div><h3>New-business measurement offer</h3><p>Built the slides sales uses to pitch the attribution, modeling and audience-insight services to prospects.</p></div>
+      <div><h3>Client-ready explainers</h3><p>Plain-language guides so account leads can defend a model result in the room without me.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">07 · Experience</span>
+      <div><h2>Six years, one through-line</h2><p>I started as a software engineer, moved into data engineering and experimentation, and now lead measurement. That path is why I can design the test, build the pipeline, and ship the tool.</p></div>
+    </div>
+    <div class="xp">
+      <div class="job"><span class="when">May 2025 – present</span><div><h3>Lead Marketing Scientist</h3><div class="org">Hawthorne Advertising · Performance agency</div><p>Day-to-day measurement partner for DTC and omnichannel retail advertisers. Own learning agendas, lift studies and Bayesian MMM across Meta, Google, TikTok, TV, radio and podcast, and build the AI tools that make results self-serve.</p></div></div>
+      <div class="job"><span class="when">Sep 2024 – May 2025</span><div><h3>Business Intelligence Engineer</h3><div class="org">Hawthorne Advertising</div><p>Built the unified data layer, the agentic KPI monitor, and the first AI creative classification work.</p></div></div>
+      <div class="job"><span class="when">May 2023 – Feb 2024</span><div><h3>Business Intelligence Engineer</h3><div class="org">Altair Global · Dallas</div><p>A/B tests, difference-in-differences and regression-discontinuity experiments that improved platform efficiency 29%. ETL automation and executive dashboards behind a 13% client retention lift.</p></div></div>
+      <div class="job"><span class="when">May 2022 – Aug 2022</span><div><h3>Research Scientist Intern</h3><div class="org">Rakuten Mobile · Dallas</div><p>Forecasting and predictive models on AWS with automated, quality-checked ETL. 43% faster time to insight.</p></div></div>
+      <div class="job"><span class="when">Aug 2020 – Aug 2021</span><div><h3>Software Engineer</h3><div class="org">Signity Solutions · India</div><p>Web applications in Node.js, Angular and React; REST APIs with Express and MongoDB.</p></div></div>
+      <div class="job"><span class="when">Education</span><div><h3>MS, Business Analytics (AI focus)</h3><div class="org">The University of Texas at Dallas</div><p>BTech, Computer Science Engineering, Maharshi Dayanand University</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="contact">
+    <div>
+      <span class="eyebrow">08 · Contact</span>
+      <h2 style="margin-top:10px">Let's talk measurement</h2>
+      <p>I'm happy to walk through any of these case studies in depth: the model configuration, the test design, or the tools.</p>
+    </div>
+    <div>
+      <div class="cline"><div><div class="k">Email</div><div class="v" id="c-email">shachigarga2@gmail.com</div></div><button class="copy" data-copy="c-email" type="button">Copy</button></div>
+      <div class="cline"><div><div class="k">LinkedIn</div><div class="v"><a href="https://www.linkedin.com/in/ShachiGarga" target="_blank" rel="noopener">linkedin.com/in/ShachiGarga</a></div></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap"><span>Shachi Garga · Lead Marketing Scientist, AI</span><span>Client names withheld for confidentiality</span></footer>
+<div class="tip" id="tip" role="status"></div>
+
+<script>
+(function(){
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const tip=document.getElementById('tip');
+function showTip(ev,html){tip.innerHTML=html;tip.style.opacity=1;const x=Math.min(ev.clientX+14,window.innerWidth-270);tip.style.left=x+'px';tip.style.top=(ev.clientY+14)+'px'}
+function hideTip(){tip.style.opacity=0}
+function bindTip(node,html){node.addEventListener('mousemove',e=>showTip(e,html));node.addEventListener('mouseleave',hideTip)}
+const fmt$=v=>v>=1000?'$'+(v/1000).toFixed(v>=10000?0:2).replace(/\.?0+$/,'')+'K':'$'+Math.round(v);
+
+/* Hero: Hill curve */
+(function(){
+  const svg=document.getElementById('hill');const W=460,H=230,m={l:44,r:26,t:10,b:30};
+  const Lmax=1400,k=150,a=1.35,smax=300;
+  const L=s=>Lmax*Math.pow(s,a)/(Math.pow(s,a)+Math.pow(k,a));
+  const dL=s=>{const h=.01;return (L(s+h)-L(s-h))/(2*h)};
+  const x=s=>m.l+(s/smax)*(W-m.l-m.r), y=v=>H-m.b-(v/1100)*(H-m.t-m.b);
+  [0,250,500,750,1000].forEach(v=>{el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),class:'grid'},svg);const t=el('text',{x:m.l-8,y:y(v)+4,'text-anchor':'end'},svg);t.textContent=v});
+  [0,100,200,300].forEach(s=>{const t=el('text',{x:x(s),y:H-10,'text-anchor':'middle'},svg);t.textContent='$'+s+'K'});
+  const lt=el('text',{x:m.l+4,y:m.t+10},svg);lt.textContent='leads / week';
+  let d='';for(let s=0;s<=smax;s+=3){d+=(s?'L':'M')+x(s).toFixed(1)+','+y(L(s)).toFixed(1)}
+  el('path',{d,fill:'none',stroke:'var(--accent)','stroke-width':2.5},svg);
+  const avgLine=el('line',{stroke:'var(--accent)','stroke-width':1.5,'stroke-dasharray':'4 4'},svg);
+  const tan=el('line',{stroke:'var(--s2)','stroke-width':2},svg);
+  const dot=el('circle',{r:6,fill:'var(--s2)',stroke:'var(--surface)','stroke-width':2},svg);
+  const inp=document.getElementById('spend');
+  function upd(){const s=+inp.value,l=L(s),sl=dL(s);
+    const avg=s*1000/l,marg=1000/sl;
+    dot.setAttribute('cx',x(s));dot.setAttribute('cy',y(l));
+    avgLine.setAttribute('x1',x(0));avgLine.setAttribute('y1',y(0));avgLine.setAttribute('x2',x(s));avgLine.setAttribute('y2',y(l));
+    const s0=Math.max(0,s-60),s1=Math.min(smax,s+60);
+    tan.setAttribute('x1',x(s0));tan.setAttribute('y1',y(l+sl*(s0-s)));tan.setAttribute('x2',x(s1));tan.setAttribute('y2',y(l+sl*(s1-s)));
+    document.getElementById('spendv').textContent='$'+s+'K';
+    document.getElementById('avg').textContent='$'+Math.round(avg);
+    document.getElementById('marg').textContent='$'+Math.round(marg).toLocaleString();
+    document.getElementById('ratio').textContent=(marg/avg).toFixed(2)+'x';}
+  inp.addEventListener('input',upd);upd();
+})();
+
+/* Case 1: ratio bars */
+(function(){
+  const raw=[["google_non_brand",309,607],["google_brand",280,471],["tv",1700,3140],["meta",403,673],["ctv",973,1540],["bing_non_brand",377,680],["radio",1260,2510],["direct_mail",1510,6340],["bing_brand",543,1020],["display",843,1460],["streaming_audio",773,1410]];
+  const data=raw.map(d=>[d[0],d[2]/d[1]]).sort((a,b)=>b[1]-a[1]);
+  const svg=document.getElementById('dumbbell');const W=520,m={l:122,r:44,t:8,b:30},rowH=30,H=m.t+m.b+rowH*data.length;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const max=4.5,x=v=>m.l+v/max*(W-m.l-m.r);
+  [0,1,2,3,4].forEach(v=>{el('line',{x1:x(v),x2:x(v),y1:m.t,y2:H-m.b,class:'grid'},svg);const t=el('text',{x:x(v),y:H-10,'text-anchor':'middle'},svg);t.textContent=v+'x'});
+  data.forEach((d,i)=>{const cy=m.t+rowH*i+rowH/2;
+    const t=el('text',{x:m.l-10,y:cy+4,'text-anchor':'end',class:'lbl'},svg);t.textContent=d[0];
+    const w=x(d[1])-m.l;
+    el('path',{d:`M${m.l},${cy-8}h${w-4}a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-${w-4}z`,fill:d[1]>=3?'var(--s2)':'var(--accent)'},svg);
+    const v=el('text',{x:x(d[1])+6,y:cy+4},svg);v.textContent=d[1].toFixed(1)+'x';
+    const hit=el('rect',{x:0,y:cy-rowH/2,width:W,height:rowH,class:'hit'},svg);
+    bindTip(hit,`<b>${d[0]}</b><br>Next lead costs ${d[1].toFixed(2)}x the average`);
+  });
+  el('line',{x1:x(1),x2:x(1),y1:m.t,y2:H-m.b,stroke:'var(--ink-2)','stroke-dasharray':'3 3'},svg);
+})();
+
+/* Case 2: recovery */
+(function(){
+  const data=[["tv",0.40],["google_non_brand",0.415],["bing_non_brand",0.458],["ctv",0.567],["display",0.987],["streaming_audio",2.698]];
+  const svg=document.getElementById('recovery');const W=520,m={l:122,r:44,t:18,b:30},rowH=38,H=m.t+m.b+rowH*data.length;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const max=2.8,x=v=>m.l+v/max*(W-m.l-m.r);
+  [0,0.5,1,1.5,2,2.5].forEach(v=>{el('line',{x1:x(v),x2:x(v),y1:m.t,y2:H-m.b,class:'grid'},svg);const t=el('text',{x:x(v),y:H-10,'text-anchor':'middle'},svg);t.textContent=v});
+  data.forEach((d,i)=>{const cy=m.t+rowH*i+rowH/2;
+    const t=el('text',{x:m.l-10,y:cy+4,'text-anchor':'end',class:'lbl'},svg);t.textContent=d[0];
+    const good=d[1]<0.6,fail=d[1]>0.95;
+    const w=Math.max(4,x(d[1])-m.l);
+    el('path',{d:`M${m.l},${cy-9}h${w-4}a4,4 0 0 1 4,4v10a4,4 0 0 1 -4,4h-${w-4}z`,fill:fail?'var(--s2)':'var(--accent)','fill-opacity':good?1:(fail?1:.55)},svg);
+    const v=el('text',{x:x(d[1])+6,y:cy+4},svg);v.textContent=d[1].toFixed(2)+(fail?'  fail':'');
+    const hit=el('rect',{x:0,y:cy-rowH/2,width:W,height:rowH,class:'hit'},svg);
+    bindTip(hit,`<b>${d[0]}</b><br>Recovery ratio ${d[1]}<br>${good?'Measured by the data':fail?'Model repeating the prior':'Mid-tier, confirm with a test'}`);
+  });
+  [[0.6,'0.6'],[0.95,'0.95']].forEach(([v,l])=>{el('line',{x1:x(v),x2:x(v),y1:m.t-8,y2:H-m.b,stroke:'var(--ink-2)','stroke-dasharray':'3 3','stroke-width':1},svg);const t=el('text',{x:x(v),y:m.t-10,'text-anchor':'middle'},svg);t.textContent=l});
+})();
+
+/* Case 4: correlations */
+(function(){
+  const data=[["Hispanic-market DRTV",0.30,0.65],["General-market DRTV",0.47,0.31],["Brand DRTV / scatter",0.47,0.39]];
+  const svg=document.getElementById('corr');const W=520,H=280,m={l:36,r:10,t:16,b:44};
+  const y=v=>H-m.b-v/0.8*(H-m.t-m.b);const gw=(W-m.l-m.r)/data.length,bw=46;
+  [0,0.2,0.4,0.6,0.8].forEach(v=>{el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),class:'grid'},svg);const t=el('text',{x:m.l-6,y:y(v)+4,'text-anchor':'end'},svg);t.textContent=v.toFixed(1)});
+  data.forEach((d,i)=>{const cx=m.l+gw*i+gw/2;
+    [[d[1],'var(--accent)',-bw-1,'Total leads'],[d[2],'var(--s2)',1,'Branded search']].forEach(([v,c,off,lab])=>{
+      const x0=cx+off,top=y(v),h=y(0)-top;
+      el('path',{d:`M${x0},${y(0)}v-${h-4}a4,4 0 0 1 4,-4h${bw-8}a4,4 0 0 1 4,4v${h-4}z`,fill:c},svg);
+      const t=el('text',{x:x0+bw/2,y:top-6,'text-anchor':'middle'},svg);t.textContent=v.toFixed(2);
+      const hit=el('rect',{x:x0,y:m.t,width:bw,height:H-m.b-m.t,class:'hit'},svg);
+      bindTip(hit,`<b>${d[0]}</b><br>${lab}: r = ${v.toFixed(2)}`);
+    });
+    const t=el('text',{x:cx,y:H-20,'text-anchor':'middle',class:'lbl'},svg);t.textContent=d[0];
+  });
+})();
+
+/* Case 8: seasonality */
+(function(){
+  const q=['Q1','Q2','Q3','Q4'],a=[19.1,21.5,28.3,31.0],b=[31.1,26.5,22.1,20.3];
+  const svg=document.getElementById('season');const W=320,H=170,m={l:30,r:6,t:14,b:24};
+  const y=v=>H-m.b-v/35*(H-m.t-m.b),gw=(W-m.l-m.r)/4,bw=24;
+  [0,10,20,30].forEach(v=>{el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),class:'grid'},svg);const t=el('text',{x:m.l-5,y:y(v)+4,'text-anchor':'end'},svg);t.textContent=v+'%'});
+  q.forEach((lab,i)=>{const cx=m.l+gw*i+gw/2;
+    [[a[i],'var(--accent)',-bw-1,'TikTok top 10'],[b[i],'var(--s2)',1,'College top 10']].forEach(([v,c,off,n])=>{
+      const x0=cx+off,top=y(v),h=y(0)-top;
+      el('path',{d:`M${x0},${y(0)}v-${h-4}a4,4 0 0 1 4,-4h${bw-8}a4,4 0 0 1 4,4v${h-4}z`,fill:c},svg);
+      const hit=el('rect',{x:x0,y:m.t,width:bw,height:H-m.b-m.t,class:'hit'},svg);
+      bindTip(hit,`<b>${n}, ${lab}</b><br>${v}% of annual spend`);
+    });
+    const t=el('text',{x:cx,y:H-6,'text-anchor':'middle'},svg);t.textContent=lab;
+  });
+})();
+
+
+/* Budget simulator */
+(function(){
+  const ch=[["TV",160,1,560,55],["Paid search",90,1,420,60],["Meta",70,1,260,35],["CTV",60,1,170,60],["Display",40,1,70,70]];
+  // name, k (half-sat $K), shape, max leads, start spend $K
+  const start=ch.map(c=>c[4]);let cur=start.slice();
+  const L=(i,s)=>{const [n,k,a,M]=ch[i];return s<=0?0:M*Math.pow(s,a)/(Math.pow(s,a)+Math.pow(k,a))};
+  const dL=(i,s)=>{const h=.05;return (L(i,s+h)-L(i,Math.max(0,s-h)))/(s>h?2*h:h+s)};
+  const rows=document.getElementById('sim-rows');
+  const tot0=start.reduce((a,b)=>a+b,0),leads0=start.reduce((a,s,i)=>a+L(i,s),0),cpl0=tot0*1000/leads0;
+  ch.forEach((c,i)=>{const r=document.createElement('div');r.className='ch';
+    r.innerHTML=`<label for="sim-${i}">${c[0]}</label><input type="range" id="sim-${i}" min="0" max="200" step="1" value="${start[i]}"><span class="sv" id="sim-s${i}"></span><span class="mc" id="sim-m${i}"></span>`;
+    rows.appendChild(r);
+    r.querySelector('input').addEventListener('input',e=>{cur[i]=+e.target.value;upd()});});
+  const money=v=>'$'+Math.round(v).toLocaleString();
+  function upd(){let tot=0,leads=0;
+    cur.forEach((s,i)=>{tot+=s;leads+=L(i,s);document.getElementById('sim-'+i).value=s;
+      document.getElementById('sim-s'+i).textContent='$'+Math.round(s)+'K';
+      const d=dL(i,Math.max(s,.5));document.getElementById('sim-m'+i).textContent=s<1?'n/a':money(1000/d);});
+    const cpl=tot*1000/Math.max(leads,1e-6);
+    document.getElementById('sim-leads').textContent=Math.round(leads).toLocaleString();
+    document.getElementById('sim-cpl').textContent=money(cpl);
+    document.getElementById('sim-tot').textContent='$'+Math.round(tot)+'K';
+    const dl=(leads/leads0-1)*100,dc=(cpl/cpl0-1)*100;
+    const a=document.getElementById('sim-dl'),b=document.getElementById('sim-dc');
+    a.textContent=(dl>=0?'+':'')+dl.toFixed(1)+'% vs. starting plan';a.className='d '+(Math.abs(dl)<.05?'':dl>0?'up':'down');
+    b.textContent=(dc>=0?'+':'')+dc.toFixed(1)+'% vs. starting plan';b.className='d '+(Math.abs(dc)<.05?'':dc<0?'up':'down');}
+  document.getElementById('sim-opt').addEventListener('click',()=>{
+    const T=cur.reduce((a,b)=>a+b,0);const s=ch.map(()=>0);let left=T;const step=1;
+    while(left>=step){let best=-1,bv=-1;for(let i=0;i<ch.length;i++){if(s[i]+step>200)continue;const g=L(i,s[i]+step)-L(i,s[i]);if(g>bv){bv=g;best=i}}if(best<0)break;s[best]+=step;left-=step;}
+    cur=s;upd();});
+  document.getElementById('sim-reset').addEventListener('click',()=>{cur=start.slice();upd()});
+  upd();
+})();
+
+/* Holdout planner */
+(function(){
+  const ids=['m','h','w','cv','e'];const g=id=>+document.getElementById('p-'+id).value;
+  function upd(){const M=g('m'),h=g('h')/100,W=g('w'),cv=g('cv')/100,e=g('e');
+    document.getElementById('o-m').textContent=M;document.getElementById('o-h').textContent=Math.round(h*100)+'%';
+    document.getElementById('o-w').textContent=W;document.getElementById('o-cv').textContent=Math.round(cv*100)+'%';document.getElementById('o-e').textContent=e+'%';
+    const nC=Math.max(1,Math.round(M*h)),nT=Math.max(1,M-nC);
+    const z=1.645+0.8416;const mde=z*cv*Math.sqrt(1/nT+1/nC)/Math.sqrt(W)*100;
+    document.getElementById('p-mde').textContent=mde.toFixed(1)+'%';
+    const chip=document.getElementById('p-chip');let note;
+    if(mde<=e*0.8){chip.innerHTML='<span class="chip good">✓ Well powered</span>';note=`${nT} test vs. ${nC} holdout markets can detect a lift of ${mde.toFixed(1)}%, comfortably below the ${e}% you expect.`}
+    else if(mde<=e){chip.innerHTML='<span class="chip warn">▲ Borderline</span>';note=`The design can only just detect a lift of ${e}%. Add a couple of weeks or markets before committing budget.`}
+    else{chip.innerHTML='<span class="chip bad">✕ Underpowered</span>';note=`A real lift of ${e}% would likely read as "no effect." Run longer, add markets, or raise media weight in test markets.`}
+    document.getElementById('p-note').textContent=note+' Quick planning check; the full design also matches markets and checks pre-period parallel trends.';}
+  ids.forEach(i=>document.getElementById('p-'+i).addEventListener('input',upd));upd();
+})();
+
+/* Case filters */
+(function(){
+  const chips=[...document.querySelectorAll('.fchip')];
+  const items=[...document.querySelectorAll('#work [data-t]')];
+  const more=document.querySelector('#work .more');
+  function apply(f){chips.forEach(c=>c.setAttribute('aria-pressed',c.dataset.f===f));
+    let first=true;
+    items.forEach(it=>{const show=f==='all'||it.dataset.t.split(' ').includes(f);it.hidden=!show;
+      if(it.classList.contains('case')){it.classList.toggle('first-visible',show&&first);if(show)first=false;}});
+    const anyMore=[...more.children].some(c=>!c.hidden);more.hidden=!anyMore;
+  }
+  chips.forEach(c=>c.addEventListener('click',()=>apply(c.dataset.f)));
+})();
+
+/* copy buttons */
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const node=document.getElementById(b.dataset.copy);const txt=node.textContent.trim();
+  const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600)};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(node);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(()=>b.textContent='Copy',1600)};
+  try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+}));
+})();
+</script>
+
+</body>
+</html>
