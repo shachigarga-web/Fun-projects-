@@ -30,6 +30,7 @@ LILAC = (178, 148, 218, 190)
 SOFT = (205, 182, 236, 170)
 VOICE, LANG, SPEED = "af_heart", "en-us", 0.88
 LEAD, TAIL, FADE = 0.55, 0.85, 0.35
+MUSIC_DB_BELOW_VOICE = 18                   # narration must sit clearly on top
 
 # --------------------------------------------------------------------------
 # shape helpers (design space = 1080 x 1920 pixels)
@@ -595,6 +596,7 @@ def main():
     ap.add_argument("--models", required=True)
     ap.add_argument("--out", default="reel.mp4")
     ap.add_argument("--work", default=".")
+    ap.add_argument("--remux", help="existing rendered video: keep its frames, only redo audio")
     args = ap.parse_args()
 
     SCENES = build_scenes()
@@ -623,12 +625,26 @@ def main():
     voice *= 0.92 / (np.abs(voice).max() + 1e-6)
     music = music_box(len(voice) / sr, sr)
     env = np.convolve(np.abs(voice), np.ones(int(0.3 * sr)) / (0.3 * sr), "same")
-    duck = 1 - 0.55 * np.clip(env / 0.05, 0, 1)
-    music *= 0.32 / (np.abs(music).max() + 1e-6)
+    duck = 1 - 0.6 * np.clip(env / 0.05, 0, 1)
+    rms = lambda x: np.sqrt(np.mean(x[np.abs(x) > 1e-4] ** 2))
+    music *= rms(voice) / rms(music) * 10 ** (-MUSIC_DB_BELOW_VOICE / 20)
     mix = voice + music * duck
     mix /= max(1.0, np.abs(mix).max() / 0.97)
+    raw = os.path.join(args.work, "mix_raw.wav")
+    sf.write(raw, mix, sr)
+    # Loudness-normalize to the level Instagram/TikTok play at, stereo 44.1k.
     wav = os.path.join(args.work, "mix.wav")
-    sf.write(wav, mix, sr)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw,
+                    "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ac", "2", "-ar", "44100", wav],
+                   check=True)
+
+    if args.remux:      # reuse already-rendered frames, only replace the audio
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", args.remux, "-i", wav,
+                        "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac",
+                        "-b:a", "192k", "-shortest", "-movflags", "+faststart", args.out],
+                       check=True)
+        print("done (audio replaced):", args.out)
+        return
 
     nframes = int(total * FPS)
     print(f"rendering {nframes} frames ({total:.1f}s)...", flush=True)
@@ -636,7 +652,7 @@ def main():
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
          "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav,
          "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p",
-         "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest",
+         "-c:a", "aac", "-b:a", "192k", "-shortest",
          "-movflags", "+faststart", args.out], stdin=subprocess.PIPE)
     with Pool(os.cpu_count()) as pool:
         for i, fr in enumerate(pool.imap(render_frame, range(nframes), chunksize=4)):
