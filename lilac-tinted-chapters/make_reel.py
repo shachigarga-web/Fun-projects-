@@ -31,6 +31,7 @@ SOFT = (205, 182, 236, 170)
 VOICE, LANG, SPEED = "af_heart", "en-us", 0.88
 LEAD, TAIL, FADE = 0.55, 0.85, 0.35
 MUSIC_DB_BELOW_VOICE = 18                   # narration must sit clearly on top
+HEADER = "lilac tinted chapters  ~  ch. 1"
 
 # --------------------------------------------------------------------------
 # shape helpers (design space = 1080 x 1920 pixels)
@@ -373,7 +374,7 @@ def make_voice(scenes, models):
     k = Kokoro(os.path.join(models, "kokoro-v1.0.onnx"), os.path.join(models, "voices-v1.0.bin"))
     clips = []
     for sc in scenes:
-        a, sr = k.create(sc.vo, voice=VOICE, speed=SPEED, lang=LANG)
+        a, sr = k.create(getattr(sc, "say", None) or sc.vo, voice=VOICE, speed=SPEED, lang=LANG)
         clips.append(np.asarray(a, np.float32))
     return clips, sr
 
@@ -556,7 +557,7 @@ def render_frame(fi):
 
     if sc.header:
         f = font(46, False)
-        txt = "lilac tinted chapters  ~  ch. 1"
+        txt = HEADER
         d.text((W * SS / 2, 150 * SS), txt, font=f, fill=DEEP, anchor="mm")
     # captions, word by word with the voice
     f = font(64, True)
