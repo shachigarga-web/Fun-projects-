@@ -19,18 +19,22 @@ XF = 0.3                                     # crossfade seconds
 
 # (file, seconds, camera move)  moves: zin, zout, up, down, left, right
 SHOTS = [
-    ("01.png", 2.6, "soft"),     # then slowly... the labels appear
+    # 1. the happy, healthy life
+    ("06.png", 2.2, "zin"),     # painting
+    ("09.png", 2.2, "zout"),    # cheers over wine with friends
+    ("07.png", 2.4, "down"),    # travelling with her husband: the hike
+    # 2. marriage into an Indian family, and the labels start
+    ("11_wedding.png", 2.6, "zin"),
+    ("01.png", 2.6, "soft"),    # then slowly... the labels appear
     ("02.png", 2.4, "up"),      # don't be so demanding / too picky
     ("03.png", 2.6, "zout"),    # household responsibility...
-    ("04.png", 2.2, "zin"),     # the turn: she works on her own goals
+    # 3. she chooses herself
+    ("04.png", 2.2, "zin"),     # the turn: her own goals
     ("05.png", 1.9, "right"),   # moodboard
-    ("06.png", 1.9, "zin"),     # painting
-    ("07.png", 1.9, "down"),    # hiking
-    ("08.png", 1.9, "zout"),    # terrace dinner
-    ("09.png", 1.9, "zin"),     # cheers
     ("10.png", 3.2, "up"),      # coffee, eyes closed: the ending
 ]
-TURN_TEXT = (3, "so she did what a girl's gotta do.")
+SHOTS = [s for s in SHOTS if os.path.exists(os.path.join(HERE, "src", s[0]))]
+TURN_TEXT = ("04.png", "so she did what a girl's gotta do.")
 SIGN_OFF = "lilac tinted chapters"
 
 
@@ -88,7 +92,7 @@ def text_layer(txt, size, y, alpha, reveal=1.0, bold=False):
 def shot_frame(i, t, imgs):
     fn, dur, mv = SHOTS[i]
     fr = move(imgs[i], mv, min(1, t / dur)).convert("RGBA")
-    if i == TURN_TEXT[0]:
+    if fn == TURN_TEXT[0]:
         rv = min(1, max(0, (t - 0.25) / 1.0))
         fr.alpha_composite(text_layer(TURN_TEXT[1], 88, 300, 1.0, rv, bold=True))
     if i == len(SHOTS) - 1:
@@ -132,7 +136,7 @@ def main():
         n = int(3.0 * FPS)
         for fi in range(n):
             fr = move(imgs[i], mv, fi / n).convert("RGBA")
-            if i == TURN_TEXT[0]:
+            if fn == TURN_TEXT[0]:
                 fr.alpha_composite(text_layer(TURN_TEXT[1], 88, 300, 1.0, min(1, fi / FPS / 1.0), bold=True))
             ff.stdin.write(fr.convert("RGB").tobytes())
         ff.stdin.close()
